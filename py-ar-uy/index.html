@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Multiservicios Página de Venta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: una sola columna pensada para el celular (tráfico de anuncios), bandas a todo el ancho, precio como "orden de trabajo" */
+:root{
+  --bg:#F4F6F8; --surface:#FFFFFF; --ink:#13212E; --muted:#4D5D6B;
+  --navy:#1B3550; --yellow:#F2B705; --yellow-ink:#13212E; --line:#D9E0E6; --ok:#1F7A4D;
+  --band:#1B3550; --band-ink:#FFFFFF; --band-muted:#C4D1DD;
+  --display:"Archivo", "Arial Narrow", Arial, sans-serif;
+  --body:"Nunito Sans", "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1720; --surface:#16222E; --ink:#E8EEF3; --muted:#A3B2BF; --navy:#9CC3E6; --line:#2A3A49; --ok:#5CC48C;
+  --band:#0A121A; --band-ink:#E8EEF3; --band-muted:#A3B2BF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1720; --surface:#16222E; --ink:#E8EEF3; --muted:#A3B2BF; --navy:#9CC3E6; --line:#2A3A49; --ok:#5CC48C;
+  --band:#0A121A; --band-ink:#E8EEF3; --band-muted:#A3B2BF; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.1;margin:0}
+h1{font-size:clamp(34px,7vw,56px);font-weight:900;letter-spacing:-.01em}
+h2{font-size:clamp(26px,5vw,36px);font-weight:800}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+.stack{display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 28px;border-radius:10px;
+  background:var(--yellow);color:var(--yellow-ink);font-family:var(--display);font-weight:800;font-size:19px;text-decoration:none;
+  box-shadow:0 3px 0 #B98A00}
+.cta:hover{filter:brightness(1.05)} .cta:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.small{font-size:14px;color:var(--muted)}
+
+/* Hero */
+.hero{background:var(--band);color:var(--band-ink);padding-block:48px 56px}
+.hero .eyebrow{color:var(--yellow)}
+.hero p.lead{font-size:19px;color:var(--band-muted);max-width:34em}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.tape{display:flex;flex-wrap:wrap;gap:8px}
+.tape span{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--band-ink)}
+.hero .small{color:var(--band-muted)}
+
+/* Listas */
+.checks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.checks li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start}
+.checks li::before{content:"";width:22px;height:22px;margin-top:2px;border-radius:5px;background:var(--yellow);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3h18v18H3z' fill='%23000'/%3E%3C/svg%3E");}
+.checks.x li::before{background:var(--muted);border-radius:50%}
+.checks li span{min-width:0}
+
+/* Capítulos tipo caja de herramientas */
+.chapters{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.chapters div{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:14px 16px;border-top:1px solid var(--line);align-items:baseline}
+.chapters div:first-child{border-top:0}
+.chapters b{font-family:var(--display);font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
+.chapters span{min-width:0}
+.chapters small{display:block;color:var(--muted);font-size:14px}
+
+/* Bonos */
+.bonos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.bono{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.bono .eyebrow{color:var(--ok)}
+
+/* Simulación */
+.sim{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:420px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:left;border-top:1px solid var(--line)}
+thead th{border-top:0;font-family:var(--display);font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+td.num{text-align:right;font-weight:700}
+
+/* Orden de trabajo (precio) */
+.orden{background:var(--surface);border:2px solid var(--ink);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:16px;position:relative}
+.orden header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px dashed var(--line);padding-bottom:12px;font-family:var(--display);font-weight:700}
+.orden .linea{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted var(--line);padding-bottom:8px}
+.orden .linea span:last-child{font-weight:700;white-space:nowrap}
+.precio{font-family:var(--display);font-weight:900;font-size:clamp(40px,9vw,58px);line-height:1;color:var(--ink)}
+.sello{align-self:flex-start;border:2px solid var(--ok);color:var(--ok);font-family:var(--display);font-weight:800;padding:6px 12px;border-radius:6px;transform:rotate(-2deg);letter-spacing:.06em;text-transform:uppercase;font-size:14px}
+
+/* Garantía */
+.garantia{display:grid;grid-template-columns:72px 1fr;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.garantia .dias{width:72px;height:72px;border-radius:50%;background:var(--yellow);color:var(--yellow-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:26px;line-height:1}
+.garantia .dias small{font-size:11px;font-weight:700;letter-spacing:.08em}
+.garantia div:last-child{min-width:0}
+
+/* FAQ */
+details{border-top:1px solid var(--line);padding-block:14px}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;list-style-position:outside}
+details p{margin-top:8px;color:var(--muted)}
+
+.band2{background:var(--band);color:var(--band-ink)}
+.band2 .small{color:var(--band-muted)}
+footer{padding-block:32px 110px;font-size:13px;color:var(--muted)}
+
+.foto{margin:0;border-radius:12px;overflow:hidden;max-width:100%;background:#1B3550}
+.foto img{display:block;width:100%;height:100%;object-fit:cover}
+.foto.hero-img{aspect-ratio:4/5;max-height:560px}
+.foto.sq{aspect-ratio:1/1;max-height:520px}
+.foto.wide{aspect-ratio:16/9}
+@media (min-width:760px){.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}.hero-grid>*{min-width:0}}
+/* Barra fija en el celular */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sticky b{font-family:var(--display);font-size:20px}
+.sticky .cta{min-height:48px;font-size:16px;padding:0 18px}
+@media (min-width:900px){.sticky{display:none} footer{padding-bottom:40px}}
+.paises{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.paises span{font-size:14px;color:var(--band-muted)}
+.paises button{font:inherit;font-family:var(--display);font-weight:700;font-size:15px;min-height:40px;padding:0 14px;border-radius:8px;
+  border:1px solid rgba(255,255,255,.35);background:transparent;color:var(--band-ink);cursor:pointer}
+.paises button[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--yellow-ink)}
+.paises button:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){.cta{transition:filter .15s}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid" style="max-width:1040px">
+  <div class="stack">
+    <span class="eyebrow">Guía práctica · Multiservicios del hogar</span>
+    <h1>Ganá dinero arreglando casas <em>en tu propio barrio</em></h1>
+    <p class="lead">El paso a paso para empezar en mantenimiento del hogar: qué trabajos hacer, cuánto cobrar en guaraníes y cómo conseguir clientes que te llamen siempre a vos.</p>
+    <div class="tape"><span>Sin título universitario</span><span>Con pocas herramientas</span><span>Para hombres y mujeres</span></div>
+    <div class="paises" role="group" aria-label="Elegí tu país">
+      <span>Elegí tu país:</span>
+      <button type="button" id="p-py" data-pais="py" aria-pressed="true">Paraguay</button>
+      <button type="button" id="p-ar" data-pais="ar" aria-pressed="false">Argentina</button>
+      <button type="button" id="p-uy" data-pais="uy" aria-pressed="false">Uruguay</button>
+    </div>
+    <div><a class="cta" href="#precio">Quiero la guía</a></div>
+    <p class="small">PDF para leer en el celular · Acceso inmediato · 7 días de garantía</p>
+  </div>
+    <figure class="foto hero-img"><img src="../img/hero.jpg" alt="Técnico de mantenimiento con polo azul marino y caja de herramientas en la puerta de una casa" loading="eager"></figure>
+  </div>
+</header>
+
+<section>
+  <div class="wrap stack">
+    <h2>¿Te pasa algo de esto?</h2>
+    <ul class="checks x">
+      <li><span>Sabés arreglar cosas, pero vivís de changas sueltas y nunca sabés cuánto vas a ganar en el mes.</span></li>
+      <li><span>No sabés cuánto cobrar: si pedís mucho, el cliente se va; si pedís poco, trabajás a pérdida.</span></li>
+      <li><span>Te dicen "está caro" y no sabés qué responder.</span></li>
+      <li><span>Hacés un buen trabajo y el cliente no te vuelve a llamar.</span></li>
+    </ul>
+    <p>Mientras tanto, en <span data-k="cities">Asunción, San Lorenzo, Luque o Capiatá</span>, todos los días alguien busca a una persona seria para colgar un estante, cambiar una canilla o instalar un ventilador de techo. Y la queja es siempre la misma: <strong>"no consigo a nadie de confianza"</strong>.</p>
+    <figure class="foto sq"><img src="../img/trabajo.jpg" alt="Técnico instalando un ventilador de techo en una sala" loading="lazy"></figure>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap stack">
+    <span class="eyebrow" style="color:var(--navy)">Lo que vas a aprender</span>
+    <h2>11 capítulos, del primer tornillo al cliente fijo</h2>
+    <div class="chapters">
+      <div><b>Cap. 1</b><span>El Escudo de Seguridad<small>Qué trabajos hacer y cuáles dejar a un profesional habilitado</small></span></div>
+      <div><b>Cap. 2</b><span>El Menú de Servicios Rentables<small>Por dónde empezar y cómo armar tu lista de servicios</small></span></div>
+      <div><b>Cap. 3</b><span>La Caja de Herramientas Inteligente<small>Qué comprar primero sin gastar de más</small></span></div>
+      <div><b>Cap. 4</b><span>Los 10 Trabajos que Pagan las Cuentas<small>Paso a paso: estantes, muebles, canillas, cisternas, enchufes, ventiladores</small></span></div>
+      <div><b>Cap. 5</b><span>La Regla del Precio Justo<small>Calculá tu hora y tu precio, con tabla de referencia de tu país</small></span></div>
+      <div><b>Cap. 6</b><span>Tu Marca de Profesional<small>Nombre, uniforme, credencial y WhatsApp Business</small></span></div>
+      <div><b>Cap. 7</b><span>El Técnico que Nadie Olvida<small>Cómo ser diferente y mostrar el valor de tu trabajo</small></span></div>
+      <div><b>Cap. 8</b><span>Cuando el Cliente Dice "Está Caro"<small>Respuestas listas para no bajar tu precio</small></span></div>
+      <div><b>Cap. 9</b><span>El Imán de Clientes del Barrio<small>Clientes sin pagar publicidad y cómo ser el dueño de tu zona</small></span></div>
+      <div><b>Cap. 10</b><span>El Cliente que Vuelve y Recomienda<small>Post-venta, recordatorios y el plan "Casa al Día"</small></span></div>
+      <div><b>Cap. 11</b><span>Tu Plan de Arranque en 30 Días<small>Semana por semana, con checklist</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack">
+    <span class="eyebrow" style="color:var(--ok)">Incluido sin costo extra</span>
+    <h2>3 bonos para usar desde el primer día</h2>
+    <div class="bonos">
+      <article class="bono">
+        <span class="eyebrow">Bono 1</span>
+        <h3>Planilla de Control de Clientes y Ganancias</h3>
+        <p>Anotá cada trabajo y la planilla calcula sola cuánto ganaste, el resumen de cada mes y la fecha del post-venta.</p>
+      </article>
+      <article class="bono">
+        <span class="eyebrow">Bono 2</span>
+        <h3>Mensajes Listos para WhatsApp</h3>
+        <p>13 textos para copiar y pegar: presentación, presupuesto, confirmación, cobro, post-venta, recordatorio y pedido de recomendación.</p>
+      </article>
+      <article class="bono">
+        <span class="eyebrow">Bono 3</span>
+        <h3>Limpieza de Aire Acondicionado Split</h3>
+        <p>El paso a paso para limpiar equipos split sin tocar el gas. Uno de los servicios más pedidos y que el cliente repite cada año.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap stack">
+    <h2>¿Cuánto se puede ganar?</h2>
+    <p>Un ejemplo con un trabajo de 2 horas a <strong data-k="job">Gs. 140.000</strong>, calculado como enseña el Capítulo 5.</p>
+    <div class="sim">
+      <table>
+        <thead><tr><th>Ritmo</th><th>Días al mes</th><th style="text-align:right">Total cobrado</th></tr></thead>
+        <tbody>
+          <tr><td>1 trabajo por día</td><td>20</td><td class="num" data-k="s1">Gs. 2.800.000</td></tr>
+          <tr><td>2 trabajos por día</td><td>20</td><td class="num" data-k="s2">Gs. 5.600.000</td></tr>
+          <tr><td>2 trabajos por día</td><td>24</td><td class="num" data-k="s3">Gs. 6.720.000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Ejemplo ilustrativo, no es una promesa de ganancia. Lo que ganes depende de tu zona, tu dedicación, tu experiencia y tus gastos.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack">
+    <h2>Esta guía es para vos si…</h2>
+    <ul class="checks">
+      <li><span>Querés un oficio que se aprende con práctica y se empieza con pocas herramientas.</span></li>
+      <li><span>Ya hacés changas y querés trabajar de forma más organizada y cobrar mejor.</span></li>
+      <li><span>Buscás un ingreso extra los fines de semana o un trabajo propio a tiempo completo.</span></li>
+      <li><span>Sos mujer y querés ofrecer arreglos a otras mujeres que prefieren no recibir a un desconocido en casa.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap stack">
+    <span class="eyebrow" style="color:var(--navy)">Quién escribió la guía</span>
+    <h2>Escrita por alguien que vive del oficio</h2>
+    <p>El autor trabaja hace años en instalación y mantenimiento técnico de casas y edificios. Empezó solo, llegó a coordinar tres equipos de trabajo y construyó su cartera de clientes concentrándose en pocos barrios, con post-venta y recordatorios. Todo lo que funcionó está en esta guía, adaptado a los trabajos del hogar.</p>
+  </div>
+</section>
+
+<section id="precio">
+  <div class="wrap stack">
+    <h2>Empezá hoy</h2>
+    <img src="../img/mockup-py.jpg" alt="Guía Multiservicios en libro y celular con sus 3 bonos" style="display:block;width:100%;border-radius:12px" loading="lazy">
+    <div class="orden">
+      <header><span>ORDEN DE TRABAJO</span><span>Multiservicios</span></header>
+      <div class="linea"><span>Guía completa (11 capítulos, PDF)</span><span>Incluido</span></div>
+      <div class="linea"><span>Bono 1: Planilla de Clientes y Ganancias</span><span>Incluido</span></div>
+      <div class="linea"><span>Bono 2: Mensajes Listos para WhatsApp</span><span>Incluido</span></div>
+      <div class="linea"><span>Bono 3: Limpieza de Aire Acondicionado Split</span><span>Incluido</span></div>
+      <div class="linea"><span>Acceso</span><span>Inmediato</span></div>
+      <div>
+        <p class="small">Pago único</p>
+        <p class="precio" data-k="price">Gs. 59.000</p>
+      </div>
+      <a class="cta" href="#precio" id="comprar">Comprar ahora</a>
+      <span class="sello">7 días de garantía</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="garantia">
+      <div class="dias">7<small>DÍAS</small></div>
+      <div class="stack" style="gap:6px">
+        <h3>Garantía sin preguntas</h3>
+        <p>Si en 7 días sentís que la guía no es para vos, pedís el reembolso desde la plataforma de pago y te devolvemos el 100%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap stack">
+    <h2>Preguntas frecuentes</h2>
+    <div>
+      <details><summary>¿Necesito experiencia?</summary><p>No. La guía empieza por los trabajos más simples y te dice qué practicar en tu casa antes de cobrar.</p></details>
+      <details><summary>¿Es un curso con videos?</summary><p>No. Es una guía en PDF para leer en el celular o la computadora, con pasos, tablas y checklists.</p></details>
+      <details><summary>¿Cómo la recibo?</summary><p>Después del pago te llega un correo con el acceso a la guía y a los tres bonos.</p></details>
+      <details><summary>¿Sirve para mi país?</summary><p>Sí. Esta edición trae precios de referencia para Paraguay, Argentina y Uruguay, y las palabras que se usan en cada país. El método sirve en cualquier ciudad: los precios los ajustás a tu zona.</p></details>
+      <details><summary>¿Qué medios de pago aceptan?</summary><p>Tarjeta y los demás medios que la plataforma de pago tenga habilitados para tu país.</p></details>
+      <details><summary>¿La guía me habilita para hacer trabajos de gas o electricidad del tablero?</summary><p>No. La guía explica justamente qué trabajos dejar a profesionales habilitados.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band2">
+  <div class="wrap stack" style="align-items:flex-start">
+    <figure class="foto wide" style="width:100%"><img src="../img/cierre.jpg" alt="Técnico cargando herramientas en su camioneta" loading="lazy"></figure>
+    <h2>Tu barrio ya necesita a alguien de confianza</h2>
+    <p class="small">Que esa persona seas vos.</p>
+    <a class="cta" href="#precio">Quiero la guía</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap stack" style="gap:8px">
+    <p>Esta guía es material educativo. No reemplaza la formación técnica ni habilita para trabajos de gas, tableros eléctricos o estructuras. Los resultados dependen de cada persona.</p>
+  </div>
+</footer>
+
+<div class="sticky" aria-label="Comprar">
+  <div><span class="small">Pago único</span><br><b data-k="price">Gs. 59.000</b></div>
+  <a class="cta" href="#precio">Quiero la guía</a>
+</div>
+
+<script>
+(function(){
+  var D = {
+    py:{cities:"Asunción, San Lorenzo, Luque o Capiatá", job:"Gs. 140.000", s1:"Gs. 2.800.000", s2:"Gs. 5.600.000", s3:"Gs. 6.720.000", price:"Gs. 59.000"},
+    ar:{cities:"Buenos Aires, Córdoba, Rosario o Mendoza", job:"$40.000", s1:"$800.000", s2:"$1.600.000", s3:"$1.920.000", price:"$9.900"},
+    uy:{cities:"Montevideo, Canelones o Maldonado", job:"$U 1.500", s1:"$U 30.000", s2:"$U 60.000", s3:"$U 72.000", price:"$U 290"}
+  };
+  function set(p){
+    if(!D[p]) p = "py";
+    var d = D[p];
+    document.querySelectorAll("[data-k]").forEach(function(el){ var v = d[el.getAttribute("data-k")]; if(v) el.textContent = v; });
+    document.querySelectorAll("[data-pais]").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-pais") === p ? "true" : "false"); });
+  }
+  document.querySelectorAll("[data-pais]").forEach(function(b){
+    b.addEventListener("click", function(){ var p = b.getAttribute("data-pais"); set(p); try{ history.replaceState(null, "", "#" + p); }catch(e){} });
+  });
+  function fromHash(){ var h = (location.hash || "").slice(1); if(D[h]) set(h); }
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>

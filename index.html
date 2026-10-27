@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="es-PY">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tu Negocio Multiservicios</title>
+<meta name="description" content="Guía práctica para convertir tus habilidades en un negocio de servicios para el hogar en Paraguay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: una columna para celular; bandas azul marino / blanco alternadas; el amarillo solo en acciones y datos clave.
+   Diseño de un solo tema (azul marino, amarillo, blanco) a pedido del cliente: los colores se fijan explícitamente. */
+:root{
+  --navy:#0F2742; --navy-2:#173A5E; --yellow:#F5B800; --yellow-dk:#C99500;
+  --white:#FFFFFF; --paper:#F3F5F8; --ink:#0E1B2A; --muted:#506172; --line:#D7DEE6; --on-navy-muted:#B9C7D6;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"Source Sans 3","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--white);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.narrow{max-width:720px}
+section{padding-block:64px}
+h1,h2,h3{font-family:var(--display);line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(36px,6.4vw,64px);font-weight:900;letter-spacing:-.015em}
+h2{font-size:clamp(28px,4.4vw,42px);font-weight:800;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:800}
+p{margin:0}
+.stack{display:flex;flex-direction:column;gap:20px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow-dk)}
+.navy{background:var(--navy);color:var(--white)}
+.navy .eyebrow{color:var(--yellow)}
+.navy .muted{color:var(--on-navy-muted)}
+.paper{background:var(--paper)}
+.muted{color:var(--muted)}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 30px;border-radius:8px;background:var(--yellow);
+  color:var(--ink);font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.01em;text-decoration:none;box-shadow:0 4px 0 var(--yellow-dk);text-align:center}
+.cta:hover{background:#FFC61A}
+.cta:active{transform:translateY(2px);box-shadow:0 2px 0 var(--yellow-dk)}
+.cta:focus-visible,summary:focus-visible{outline:3px solid #4DA3FF;outline-offset:3px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px}
+.trust span{display:inline-flex;align-items:center;gap:8px}
+.trust span::before{content:"";width:8px;height:8px;background:var(--yellow);border-radius:2px}
+
+/* Foto (con espacio reservado si todavía no hay imagen) */
+.foto{position:relative;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#1C4470,#0F2742);aspect-ratio:4/5;max-width:100%}
+.foto.wide{aspect-ratio:16/9}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.foto figcaption{position:absolute;inset:auto 0 0 0;padding:14px 16px;font-size:14px;color:var(--on-navy-muted);background:linear-gradient(0deg,rgba(15,39,66,.95),rgba(15,39,66,0))}
+.foto .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:var(--on-navy-muted);font-size:15px}
+.foto .ph b{display:block;font-family:var(--display);color:var(--yellow);letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-bottom:6px}
+
+/* Hero */
+.hero{padding-block:40px 64px}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+.hero-grid > *{min-width:0}
+.hero p.lead{font-size:20px;color:var(--on-navy-muted);max-width:32em}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+@media (min-width:880px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+
+/* Datos */
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.dato{border-top:4px solid var(--yellow);background:var(--white);padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;border-radius:0 0 8px 8px}
+.dato strong{font-family:var(--display);font-weight:900;font-size:40px;line-height:1;color:var(--navy);font-variant-numeric:tabular-nums}
+.dato small{font-size:13px;color:var(--muted)}
+
+.ranking{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.ranking li{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+.ranking li > div{min-width:0;display:flex;flex-direction:column;gap:4px}
+.ranking b{font-family:var(--display);font-weight:900;font-size:34px;line-height:1;color:var(--yellow-dk);font-variant-numeric:tabular-nums}
+.ranking li:first-child b{color:var(--navy)}
+.ranking p{color:var(--muted);font-size:17px}
+.ranking strong{color:var(--ink)}
+/* Antes / después */
+.cambio{overflow-x:auto;border-radius:10px;border:1px solid var(--line)}
+.cambio table{width:100%;min-width:520px;border-collapse:collapse;background:var(--white)}
+.cambio th,.cambio td{padding:14px 16px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+.cambio thead th{border-top:0;font-family:var(--display);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.cambio thead th:first-child{color:var(--muted)}
+.cambio thead th:last-child{background:var(--navy);color:var(--yellow)}
+.cambio td:first-child{color:var(--muted)}
+.cambio td:last-child{font-weight:700}
+
+/* Camino en 4 etapas */
+.camino{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;background:var(--navy-2);border-radius:10px;overflow:hidden}
+.etapa{background:var(--navy);padding:22px;display:flex;flex-direction:column;gap:10px}
+.etapa .n{font-family:var(--display);font-weight:900;font-size:14px;letter-spacing:.14em;color:var(--yellow);text-transform:uppercase}
+.etapa p{color:var(--on-navy-muted);font-size:16px}
+
+/* Servicios */
+.niveles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.nivel{border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;background:var(--white)}
+.nivel ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.tag{align-self:flex-start;font-family:var(--display);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:var(--navy);color:var(--white)}
+.aviso{border-left:4px solid var(--yellow);background:var(--paper);padding:14px 16px;font-size:16px;border-radius:0 8px 8px 0}
+
+/* Método */
+.metodo{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.pilar{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:10px;background:var(--white);border:1px solid var(--line)}
+.pilar .verbo{font-family:var(--display);font-weight:900;font-size:26px;color:var(--navy)}
+.pilar p{font-size:16px;color:var(--muted)}
+
+/* Beneficios */
+.check{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px 28px}
+.check li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start}
+.check li::before{content:"";width:22px;height:22px;margin-top:3px;border-radius:4px;background:var(--yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E1B2A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/16px no-repeat}
+.check li span{min-width:0}
+
+/* Contenido */
+.indice{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 32px}
+.cap{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.cap b{font-family:var(--display);color:var(--yellow);font-weight:800;font-variant-numeric:tabular-nums}
+.cap span{min-width:0}
+.cap small{display:block;color:var(--on-navy-muted);font-size:15px}
+.bonos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.bono{border:1px solid var(--yellow);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.bono .eyebrow{color:var(--yellow)}
+.bono p{color:var(--on-navy-muted);font-size:16px}
+
+/* Oferta */
+.oferta{max-width:560px;margin:0 auto;background:var(--white);border:3px solid var(--navy);border-radius:12px;overflow:hidden}
+.oferta header{background:var(--navy);color:var(--white);padding:16px 22px;font-family:var(--display);font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:15px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.oferta header span:last-child{color:var(--yellow)}
+.oferta .cuerpo{padding:22px;display:flex;flex-direction:column;gap:14px}
+.item{display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.item span:last-child{font-weight:700;white-space:nowrap}
+.precio{font-family:var(--display);font-weight:900;font-size:clamp(44px,10vw,64px);line-height:1;color:var(--navy);font-variant-numeric:tabular-nums}
+.garantia{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center;max-width:560px;margin:20px auto 0}
+.sello{width:64px;height:64px;border-radius:50%;border:3px solid var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:24px;line-height:1;color:var(--navy)}
+.sello small{font-size:10px;letter-spacing:.1em}
+.garantia > div:last-child{min-width:0}
+
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding-block:16px}
+details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:18px}
+details p{margin-top:10px;color:var(--muted)}
+
+/* Cierre */
+.cierre-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+.cierre-grid > *{min-width:0}
+@media (min-width:880px){.cierre-grid{grid-template-columns:.9fr 1.1fr} :root{--op-cols:1.2fr .8fr}}
+
+footer{padding-block:28px 112px;font-size:13px;color:var(--muted);background:var(--paper)}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--navy);color:var(--white);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -6px 20px rgba(0,0,0,.18)}
+.sticky b{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.sticky small{display:block;color:var(--on-navy-muted);font-size:12px}
+.sticky .cta{min-height:48px;font-size:16px;padding:0 18px}
+.sticky[hidden]{display:none!important}
+@media (min-width:880px){.sticky{display:none} footer{padding-bottom:32px}}
+</style>
+</head>
+<body>
+
+<!-- 1–3. HERO -->
+<header class="navy hero">
+  <div class="wrap hero-grid">
+    <div class="stack">
+      <span class="eyebrow">Guía práctica · Servicios de mantenimiento del hogar</span>
+      <h1>Convertí tus habilidades en un <em>negocio de servicios para el hogar</em></h1>
+      <p class="lead">El método para pasar de changas sueltas a un trabajo propio y organizado: qué servicios ofrecer, cuánto cobrar en guaraníes, cómo conseguir clientes en tu barrio y cómo hacer que vuelvan.</p>
+      <div><a class="cta" href="#oferta" data-cta="hero">Quiero empezar mi negocio</a></div>
+      <div class="trust muted"><span>Guía en PDF + 3 bonos</span><span>Acceso inmediato</span><span>7 días de garantía</span></div>
+    </div>
+    <figure class="foto" style="margin:0">
+      <img src="img/hero.jpg" alt="Técnico de mantenimiento con uniforme y caja de herramientas en la puerta de una casa" loading="eager" data-ph>
+      <div class="ph" hidden><div><b>Foto principal</b>Hombre de 30 a 45 años con polo azul marino y caja de herramientas, en la entrada de una casa de Gran Asunción, mirando a cámara con confianza.</div></div>
+    </figure>
+  </div>
+</header>
+
+<!-- 4. OPORTUNIDAD -->
+<section class="paper">
+  <div class="wrap stack" style="gap:28px">
+    <div class="cierre-grid" style="grid-template-columns:var(--op-cols,1fr)">
+      <div class="stack">
+        <span class="eyebrow">Por qué ahora</span>
+        <h2>En cada casa hay algo para arreglar. Y falta gente seria que lo haga.</h2>
+        <p>Una canilla que gotea, un ventilador que hay que instalar antes del verano, una puerta que no cierra, un mueble que nadie armó. Son trabajos que aparecen todas las semanas. La queja de los clientes casi siempre es la misma: <strong>"no consigo a alguien de confianza que venga cuando dice"</strong>.</p>
+      </div>
+      <figure class="foto" style="margin:0;aspect-ratio:1/1">
+        <img src="img/trabajo.jpg" alt="Técnico con polo azul marino instalando un ventilador de techo en una sala" loading="lazy" data-ph>
+        <div class="ph" hidden><div><b>Foto de trabajo</b>Manos instalando un ventilador de techo.</div></div>
+      </figure>
+    </div>
+    <div class="datos">
+      <div class="dato"><strong>5,7%</strong><span>creció la economía paraguaya en el primer semestre de 2026.</span><small>Fuente: Banco Central del Paraguay</small></div>
+      <div class="dato"><strong>6 de 10</strong><span>personas que trabajan fuera del campo lo hacen en la informalidad.</span><small>Fuente: INE, 2.º trimestre de 2026 (61,6%)</small></div>
+      <div class="dato"><strong>1</strong><span>diferencia que el cliente nota enseguida: el que trabaja organizado, con precio claro y palabra cumplida.</span><small>Eso es lo que enseña esta guía</small></div>
+    </div>
+    <p class="narrow muted">Que haya demanda no garantiza clientes. Lo que te hace destacar en un mercado lleno de changas es trabajar como un profesional: presentarte bien, dar presupuesto claro, cumplir horarios y hacer post-venta.</p>
+  </div>
+</section>
+
+<!-- Servicios más pedidos -->
+<section>
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">Dónde está la demanda</span>
+      <h2>Los servicios que más se piden</h2>
+      <p>No hace falta saber hacer de todo. Conviene empezar por los trabajos que el cliente necesita seguido y que pagan bien la visita.</p>
+    </div>
+    <ol class="ranking">
+      <li><b>01</b><div><h3>Limpieza de aire acondicionado split</h3><p>7 de cada 10 casas de la ciudad tienen aire acondicionado (INE). Con el calor paraguayo, el cliente necesita limpieza todos los años. <strong>Te lo enseñamos en el Bono 3.</strong></p></div></li>
+      <li><b>02</b><div><h3>Plomería simple</h3><p>Canillas, cisternas, pérdidas y desagües tapados. Es urgente: cuando gotea, el cliente llama en el momento.</p></div></li>
+      <li><b>03</b><div><h3>Ventiladores de techo y lámparas</h3><p>Muy pedidos por el calor y con buen valor por visita.</p></div></li>
+      <li><b>04</b><div><h3>Armado de muebles</h3><p>Crece con cada mudanza y cada departamento nuevo.</p></div></li>
+      <li><b>05</b><div><h3>Paquete "cositas pendientes"</h3><p>Varios arreglos chicos en una sola visita: el trabajo que más deja por salida.</p></div></li>
+    </ol>
+    <p class="muted" style="font-size:14px">Orden basado en la cantidad de hogares con aire acondicionado en Paraguay (INE) y en los servicios más pedidos en plataformas de servicios del hogar de la región.</p>
+  </div>
+</section>
+
+<!-- 5. TRANSFORMACIÓN -->
+<section>
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">La transformación</span>
+      <h2>De trabajador informal a prestador de servicios organizado</h2>
+      <p>No hace falta abrir una empresa grande para tener algo propio. Hace falta trabajar con método desde el primer cliente.</p>
+    </div>
+    <div class="cambio">
+      <table>
+        <thead><tr><th>Changas sueltas</th><th>Negocio organizado</th></tr></thead>
+        <tbody>
+          <tr><td>Cobrás "lo que te parece" y muchas veces perdés plata.</td><td>Calculás tu hora y tenés una tabla de precios.</td></tr>
+          <tr><td>Esperás que alguien se acuerde de vos.</td><td>Conseguís clientes con WhatsApp, grupos del barrio y ferreterías aliadas.</td></tr>
+          <tr><td>Llegás con cualquier ropa y sin presupuesto.</td><td>Llegás con uniforme, credencial y presupuesto por escrito.</td></tr>
+          <tr><td>Hacés el trabajo y el cliente se olvida.</td><td>Hacés post-venta y el cliente te vuelve a llamar.</td></tr>
+          <tr><td>No sabés cuánto ganaste en el mes.</td><td>Anotás cada trabajo y ves tu ganancia real.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Camino -->
+<section class="navy">
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">Tu camino</span>
+      <h2>Empezás solo. Crecés paso a paso.</h2>
+    </div>
+    <div class="camino">
+      <div class="etapa"><span class="n">Etapa 1</span><h3>Arrancás</h3><p>Elegís tus primeros servicios, armás tu kit de herramientas y practicás antes de cobrar.</p></div>
+      <div class="etapa"><span class="n">Etapa 2</span><h3>Te organizás</h3><p>Ponés precio, armás tu agenda y anotás cada trabajo para saber cuánto ganás.</p></div>
+      <div class="etapa"><span class="n">Etapa 3</span><h3>Construís reputación</h3><p>Nombre, uniforme, reseñas y recomendaciones: tu barrio empieza a conocerte.</p></div>
+      <div class="etapa"><span class="n">Etapa 4</span><h3>Crecés</h3><p>Clientes fijos, edificios y planes de mantenimiento. Un trabajo que puede crecer con el tiempo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. SERVICIOS -->
+<section>
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">Qué vas a poder ofrecer</span>
+      <h2>Servicios que empiezan simples y suben de nivel con tu experiencia</h2>
+    </div>
+    <div class="niveles">
+      <div class="nivel"><span class="tag">Nivel 1 · Desde el primer día</span><ul><li>Colgar estantes, cuadros, cortinas y espejos</li><li>Armar muebles</li><li>Ajustar puertas, bisagras y manijas</li><li>Sellar con silicona en baño y cocina</li></ul></div>
+      <div class="nivel"><span class="tag">Nivel 2 · Con práctica</span><ul><li>Cambiar canillas y flexibles</li><li>Arreglar la cisterna del inodoro</li><li>Destapar piletas y desagües</li><li>Cambiar tomacorrientes y lámparas (con la llave cortada)</li><li>Instalar ventiladores de techo</li></ul></div>
+      <div class="nivel"><span class="tag">Nivel 3 · Con experiencia</span><ul><li>Pintura de ambientes</li><li>Arreglos de revoque y masilla</li><li>Cambio de cerraduras</li><li>Mosquiteros y rejas</li></ul></div>
+    </div>
+    <p class="aviso"><strong>Seguridad primero:</strong> la guía te dice qué trabajos NO hacer y cuándo recomendar a un profesional habilitado: gas, tableros eléctricos, estructuras y trabajos en altura.</p>
+  </div>
+</section>
+
+<!-- 7. MÉTODO -->
+<section class="paper">
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">El método</span>
+      <h2>Cuatro movimientos para que tu trabajo se convierta en negocio</h2>
+    </div>
+    <div class="metodo">
+      <div class="pilar"><span class="verbo">Empezar</span><p>Qué servicios ofrecer primero, qué herramientas comprar sin gastar de más y cómo calcular tu precio para no trabajar a pérdida.</p></div>
+      <div class="pilar"><span class="verbo">Mostrarte</span><p>Nombre, uniforme, WhatsApp Business, estados diarios, grupos del barrio, Marketplace y Clasipar.</p></div>
+      <div class="pilar"><span class="verbo">Conquistar</span><p>Presupuesto claro, respuestas listas cuando te dicen "está caro" y alianzas con ferreterías, inmobiliarias y edificios.</p></div>
+      <div class="pilar"><span class="verbo">Organizar</span><p>Agenda, registro de trabajos, post-venta a los 30 días, recordatorio a los 6 meses y planes de mantenimiento fijo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. BENEFICIOS -->
+<section>
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">Lo que te llevás</span>
+      <h2>Más que arreglar cosas: saber vender tu trabajo</h2>
+    </div>
+    <ul class="check">
+      <li><span>Un plan de 30 días, semana por semana, para pasar de cero a tus primeros clientes.</span></li>
+      <li><span>Una fórmula simple para calcular tu hora y tu precio en guaraníes.</span></li>
+      <li><span>Paso a paso de los 10 trabajos más pedidos en una casa.</span></li>
+      <li><span>Qué responder cuando el cliente regatea, sin bajar tu precio.</span></li>
+      <li><span>Cómo presentarte para que el cliente confíe en vos desde la puerta.</span></li>
+      <li><span>Cómo convertirte en el nombre que tu barrio recuerda.</span></li>
+      <li><span>Cómo hacer que el cliente vuelva y te recomiende.</span></li>
+      <li><span>Una planilla que calcula sola tu ganancia del mes.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 9. CONTENIDO -->
+<section class="navy">
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">Contenido</span>
+      <h2>11 capítulos y 3 bonos para usar desde el primer día</h2>
+      <p class="muted">Guía en PDF para leer en el celular, con pasos, tablas y checklists.</p>
+    </div>
+    <div class="indice">
+      <div class="cap"><b>Cap. 1</b><span>El Escudo de Seguridad<small>Qué hacer y qué dejar a un profesional</small></span></div>
+      <div class="cap"><b>Cap. 2</b><span>El Menú de Servicios Rentables<small>Por dónde empezar</small></span></div>
+      <div class="cap"><b>Cap. 3</b><span>La Caja de Herramientas Inteligente<small>Qué comprar primero</small></span></div>
+      <div class="cap"><b>Cap. 4</b><span>Los 10 Trabajos que Pagan las Cuentas<small>Paso a paso</small></span></div>
+      <div class="cap"><b>Cap. 5</b><span>La Regla del Precio Justo<small>Tu hora y tu precio en guaraníes</small></span></div>
+      <div class="cap"><b>Cap. 6</b><span>Tu Marca de Profesional<small>Nombre, uniforme, WhatsApp Business</small></span></div>
+      <div class="cap"><b>Cap. 7</b><span>El Técnico que Nadie Olvida<small>Cómo mostrar el valor de tu trabajo</small></span></div>
+      <div class="cap"><b>Cap. 8</b><span>Cuando el Cliente Dice "Está Caro"<small>Respuestas listas</small></span></div>
+      <div class="cap"><b>Cap. 9</b><span>El Imán de Clientes del Barrio<small>Clientes sin pagar publicidad</small></span></div>
+      <div class="cap"><b>Cap. 10</b><span>El Cliente que Vuelve y Recomienda<small>Post-venta y plan "Casa al Día"</small></span></div>
+      <div class="cap"><b>Cap. 11</b><span>Tu Plan de Arranque en 30 Días<small>Semana por semana</small></span></div>
+    </div>
+    <div class="bonos">
+      <div class="bono"><span class="eyebrow">Bono 1</span><h3>Planilla de Control de Clientes y Ganancias</h3><p>Anotás cada trabajo y la planilla calcula tu ganancia, el resumen del mes y la fecha del post-venta.</p></div>
+      <div class="bono"><span class="eyebrow">Bono 2</span><h3>Mensajes Listos para WhatsApp</h3><p>13 textos para copiar y pegar: presentación, presupuesto, cobro, post-venta, recordatorio y pedido de recomendación.</p></div>
+      <div class="bono"><span class="eyebrow">Bono 3</span><h3>Limpieza de Aire Acondicionado Split</h3><p>El paso a paso para limpiar equipos split sin tocar el gas. Uno de los servicios más pedidos y que el cliente repite cada año.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Autor -->
+<section>
+  <div class="wrap narrow stack">
+    <span class="eyebrow">Quién está detrás</span>
+    <h2>Escrita por alguien que construyó su negocio desde la herramienta</h2>
+    <p>El autor trabaja hace años en instalación y mantenimiento técnico de casas y edificios. Empezó solo, llegó a coordinar tres equipos de trabajo y armó su cartera de clientes concentrándose en pocos barrios, con presupuesto claro, post-venta y recordatorios. Esta guía reúne ese método, adaptado a los servicios del hogar en Paraguay.</p>
+  </div>
+</section>
+
+<!-- 10–11. OFERTA -->
+<section class="paper" id="oferta">
+  <div class="wrap stack" style="gap:8px">
+    <div class="stack narrow" style="margin:0 auto 20px;text-align:center;align-items:center">
+      <span class="eyebrow">Empezá hoy</span>
+      <h2>Tu negocio empieza con el primer cliente bien atendido</h2>
+    </div>
+    <img src="img/mockup-py.jpg" alt="Guía Multiservicios en libro y celular con sus 3 bonos" style="display:block;width:100%;max-width:720px;margin:0 auto 24px;border-radius:12px" loading="lazy">
+    <div class="oferta">
+      <header><span>Tu kit para empezar</span><span>Acceso inmediato</span></header>
+      <div class="cuerpo">
+        <div class="item"><span>Guía completa, 11 capítulos (PDF)</span><span>Incluido</span></div>
+        <div class="item"><span>Bono 1: Planilla de Clientes y Ganancias</span><span>Incluido</span></div>
+        <div class="item"><span>Bono 2: 13 Mensajes Listos para WhatsApp</span><span>Incluido</span></div>
+        <div class="item"><span>Bono 3: Limpieza de Aire Acondicionado Split</span><span>Incluido</span></div>
+        <div><span class="muted" style="font-size:15px">Pago único</span><p class="precio">Gs. 59.000</p></div>
+        <a class="cta" href="#" id="comprar" data-cta="oferta">Sí, quiero empezar mi negocio</a>
+        <p class="muted" style="font-size:14px;text-align:center">Pago seguro en la plataforma. Recibís el acceso por correo.</p>
+      </div>
+    </div>
+    <div class="garantia">
+      <div class="sello">7<small>DÍAS</small></div>
+      <div class="stack" style="gap:4px"><h3>Garantía de 7 días</h3><p class="muted">Si la guía no es lo que esperabas, pedís el reembolso dentro de los 7 días desde la plataforma de pago y te devolvemos el 100%.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section>
+  <div class="wrap narrow stack">
+    <span class="eyebrow">Preguntas frecuentes</span>
+    <h2>Antes de decidir</h2>
+    <div>
+      <details><summary>¿Necesito experiencia?</summary><p>No. La guía empieza por los trabajos más simples y te dice qué practicar en tu casa antes de cobrar. Si ya hacés changas, te ayuda a organizarte y cobrar mejor.</p></details>
+      <details><summary>¿Es un curso con videos?</summary><p>No. Es una guía práctica en PDF, con pasos, tablas, checklists y mensajes listos. La podés leer en el celular y consultar cuando la necesites.</p></details>
+      <details><summary>¿Cuánto voy a ganar?</summary><p>Nadie te lo puede prometer. Depende de tu zona, tu dedicación, tus precios y tus gastos. La guía te enseña a calcular tu precio para que cada trabajo te deje ganancia y a llevar el registro de lo que ganás.</p></details>
+      <details><summary>¿Necesito mucha plata para empezar?</summary><p>No. La guía tiene un kit mínimo de herramientas y te recomienda sumar el resto con lo que ganes en los primeros trabajos.</p></details>
+      <details><summary>¿Sirve si vivo en el interior?</summary><p>Sí. Los ejemplos usan Gran Asunción, pero el método funciona en Encarnación, Ciudad del Este, Coronel Oviedo o cualquier ciudad. Los precios los ajustás a tu zona.</p></details>
+      <details><summary>¿Me habilita para trabajos de gas o tableros eléctricos?</summary><p>No. La guía explica justamente qué trabajos dejar a profesionales habilitados.</p></details>
+      <details><summary>¿Cómo recibo la guía?</summary><p>Después del pago te llega un correo con el acceso a la guía y a los tres bonos.</p></details>
+      <details><summary>¿Qué medios de pago aceptan?</summary><p>Tarjeta y los demás medios que la plataforma de pago tenga habilitados para Paraguay.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. CIERRE -->
+<section class="navy">
+  <div class="wrap cierre-grid">
+    <figure class="foto wide" style="margin:0">
+      <img src="img/cierre.jpg" alt="Técnico con uniforme cargando herramientas en una camioneta con su nombre" loading="lazy" data-ph>
+      <div class="ph" hidden><div><b>Foto de cierre</b>Técnico con uniforme cargando herramientas en una moto o camioneta con su nombre o logo.</div></div>
+    </figure>
+    <div class="stack">
+      <span class="eyebrow">Mirá más lejos</span>
+      <h2>Hoy son tus manos y tus herramientas. Mañana puede ser un nombre que tu barrio conoce.</h2>
+      <p class="muted">Muchos negocios de servicios empezaron con una persona, una caja de herramientas y un primer cliente bien atendido. Con clientes que vuelven, recomendaciones y una agenda ordenada, tu trabajo puede crecer: más barrios, edificios, clientes fijos y, cuando la agenda se llene, un ayudante.</p>
+      <div><a class="cta" href="#oferta" data-cta="cierre">Empezar mi negocio hoy</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap stack" style="gap:8px">
+    <p>Esta guía es material educativo. No reemplaza la formación técnica ni habilita para trabajos de gas, tableros eléctricos o estructuras. Los resultados dependen de cada persona; no se garantizan ingresos.</p>
+    <p>Datos: Banco Central del Paraguay (crecimiento del PIB, primer semestre de 2026); Instituto Nacional de Estadística, Encuesta Permanente de Hogares Continua (informalidad no agropecuaria, 2.º trimestre de 2026).</p>
+  </div>
+</footer>
+
+<div class="sticky" id="barra">
+  <div><small>Guía + 3 bonos · pago único</small><b>Gs. 59.000</b></div>
+  <a class="cta" href="#oferta" data-cta="barra">Quiero empezar</a>
+</div>
+
+<script>
+(function(){
+  // Si una foto no existe todavía, se muestra el espacio con la descripción de la imagen sugerida
+  document.querySelectorAll("img[data-ph]").forEach(function(img){
+    function fallback(){ img.hidden = true; var ph = img.parentNode.querySelector(".ph"); if(ph) ph.hidden = false; }
+    if(img.complete && img.naturalWidth === 0) fallback();
+    img.addEventListener("error", fallback);
+  });
+  // La barra fija se oculta cuando la oferta está en pantalla
+  var barra = document.getElementById("barra"), oferta = document.getElementById("oferta");
+  if("IntersectionObserver" in window && barra && oferta){
+    new IntersectionObserver(function(e){ barra.hidden = e[0].isIntersecting; }, {threshold:0.15}).observe(oferta);
+  }
+  // Enlace de pago: pegá acá el link del checkout de Hotmart
+  var CHECKOUT = "";
+  var btn = document.getElementById("comprar");
+  if(btn){ if(CHECKOUT){ btn.href = CHECKOUT; } else { btn.addEventListener("click", function(ev){ ev.preventDefault(); btn.textContent = "Link de pago pendiente"; }); } }
+})();
+</script>
+</body>
+</html>
