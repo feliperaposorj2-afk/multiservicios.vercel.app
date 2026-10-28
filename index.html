@@ -152,8 +152,17 @@ footer{padding-block:28px 112px;font-size:13px;color:var(--muted);background:var
 .sticky[hidden]{display:none!important}
 @media (min-width:880px){.sticky{display:none} footer{padding-bottom:32px}}
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','3072531926115631');fbq('track','PageView');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="pay.hotmart.com"]');if(a&&window.fbq){fbq('track','InitiateCheckout');}});
+</script>
+<!-- End Meta Pixel -->
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=3072531926115631&ev=PageView&noscript=1"></noscript>
+
 
 <!-- 1–3. HERO -->
 <header class="navy hero">
@@ -359,7 +368,7 @@ footer{padding-block:28px 112px;font-size:13px;color:var(--muted);background:var
         <div class="item"><span>Bono 2: 13 Mensajes Listos para WhatsApp</span><span>Incluido</span></div>
         <div class="item"><span>Bono 3: Limpieza de Aire Acondicionado Split</span><span>Incluido</span></div>
         <div><span class="muted" style="font-size:15px">Pago único</span><p class="precio">Gs. 59.000</p></div>
-        <a class="cta" href="#" id="comprar" data-cta="oferta">Sí, quiero empezar mi negocio</a>
+        <a class="cta" href="https://pay.hotmart.com/C108206581N" id="comprar" data-cta="oferta">Sí, quiero empezar mi negocio</a>
         <p class="muted" style="font-size:14px;text-align:center">Pago seguro en la plataforma. Recibís el acceso por correo.</p>
       </div>
     </div>
@@ -430,7 +439,7 @@ footer{padding-block:28px 112px;font-size:13px;color:var(--muted);background:var
     new IntersectionObserver(function(e){ barra.hidden = e[0].isIntersecting; }, {threshold:0.15}).observe(oferta);
   }
   // Enlace de pago: pegá acá el link del checkout de Hotmart
-  var CHECKOUT = "";
+  var CHECKOUT = "https://pay.hotmart.com/C108206581N";
   var btn = document.getElementById("comprar");
   if(btn){ if(CHECKOUT){ btn.href = CHECKOUT; } else { btn.addEventListener("click", function(ev){ ev.preventDefault(); btn.textContent = "Link de pago pendiente"; }); } }
 })();
