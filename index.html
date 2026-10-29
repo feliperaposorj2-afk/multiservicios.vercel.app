@@ -450,7 +450,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
         <div class="item"><span>Bono 2: 13 Mensajes Listos para WhatsApp</span><span>Incluido</span></div>
         <div class="item"><span>Bono 3: Limpieza de Aire Acondicionado Split</span><span>Incluido</span></div>
         <div><span class="muted" style="font-size:15px">Pago único</span><p class="precio">Gs. 59.000</p></div>
-        <a class="cta" href="https://pay.hotmart.com/C108206581N" id="comprar" data-cta="oferta">Sí, quiero empezar mi negocio</a>
+        <a class="cta" href="https://pay.hotmart.com/C108206581N?checkoutMode=10" id="comprar" data-cta="oferta">Sí, quiero empezar mi negocio</a>
         <div class="medios" aria-label="Medios de pago aceptados"><span>Tarjeta de crédito</span><span>PayPal</span><span>Google Pay</span></div>
         <p class="muted" style="font-size:14px;text-align:center">Pago seguro en Hotmart. Tu tarjeta tiene que estar habilitada para compras por internet. Recibís el acceso por correo.</p>
       </div>
@@ -522,7 +522,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
     new IntersectionObserver(function(e){ barra.hidden = e[0].isIntersecting; }, {threshold:0.15}).observe(oferta);
   }
   // Enlace de pago: pegá acá el link del checkout de Hotmart
-  var CHECKOUT = "https://pay.hotmart.com/C108206581N";
+  var CHECKOUT = "https://pay.hotmart.com/C108206581N?checkoutMode=10";
   var btn = document.getElementById("comprar");
   if(btn){ if(CHECKOUT){ btn.href = CHECKOUT; } else { btn.addEventListener("click", function(ev){ ev.preventDefault(); btn.textContent = "Link de pago pendiente"; }); } }
 })();
