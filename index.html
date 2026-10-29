@@ -167,6 +167,10 @@ footer{padding-block:28px 112px;font-size:13px;color:var(--muted);background:var
 .paginas figcaption{font-size:15px;color:var(--on-navy-muted)}
 .medios{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.medios span{border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:14px;font-weight:700;color:var(--navy);background:var(--white)}
 .galeria-autor{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;margin-bottom:8px}.galeria-autor figure{margin:0;min-width:0}.galeria-autor .g1{grid-column:span 2}.galeria-autor img{width:100%;height:auto;object-fit:cover;display:block;border-radius:10px;aspect-ratio:4/3}.galeria-autor .g1 img{aspect-ratio:4/5;object-position:center 60%}.galeria-autor figcaption{font-size:14px;line-height:1.3;color:var(--muted);margin-top:6px}
+.quejas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.queja{border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--white)}
+.queja .q{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.2;color:var(--ink)}
+.queja .r{font-size:16px;color:var(--muted);border-top:2px solid var(--yellow);padding-top:10px}
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -188,7 +192,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <h1>Convertí tus habilidades en un <em>negocio de servicios para el hogar</em></h1>
       <p class="lead">El método para pasar de changas sueltas a un trabajo propio y organizado: qué servicios ofrecer, cuánto cobrar en guaraníes, cómo conseguir clientes en tu barrio y cómo hacer que vuelvan.</p>
       <div><a class="cta" href="#oferta" data-cta="hero">Quiero empezar mi negocio</a></div>
-      <div class="trust muted"><span>Guía en PDF + 3 bonos</span><span>Acceso inmediato</span><span>7 días de garantía</span></div>
+      <div class="trust muted"><span>Guía en PDF + 4 bonos</span><span>Acceso inmediato</span><span>7 días de garantía</span></div>
     </div>
     <figure class="foto" style="margin:0">
       <img src="img/hero.jpg" alt="Técnico de mantenimiento con uniforme y caja de herramientas en la puerta de una casa" loading="eager" data-ph>
@@ -196,6 +200,24 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
     </figure>
   </div>
 </header>
+
+<!-- El problema -->
+<section>
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">El problema del cliente</span>
+      <h2>¿Cuántas veces escuchaste "no consigo a nadie serio que venga"?</h2>
+      <p>Quien contrata un arreglo en su casa casi siempre tiene la misma historia. Y cada una de esas quejas es una oportunidad para el que trabaja distinto.</p>
+    </div>
+    <div class="quejas">
+      <div class="queja"><span class="q">"Dijo que venía el martes y nunca apareció."</span><span class="r">Llegar a la hora ya te diferencia.</span></div>
+      <div class="queja"><span class="q">"Me cobró una cosa y al final era otra."</span><span class="r">Un presupuesto por escrito genera confianza.</span></div>
+      <div class="queja"><span class="q">"Dejó todo sucio y a la semana volvió a gotear."</span><span class="r">Trabajo limpio y con garantía hace que te vuelvan a llamar.</span></div>
+      <div class="queja"><span class="q">"No sé a quién llamar, no conozco a nadie."</span><span class="r">El que se hace conocer en el barrio es el primero en la lista.</span></div>
+    </div>
+    <p class="narrow"><strong>Saber arreglar no alcanza.</strong> Lo que el cliente recuerda es cómo lo atendiste. Esta guía te enseña esa parte, la que nadie enseña en un curso técnico.</p>
+  </div>
+</section>
 
 <!-- 4. OPORTUNIDAD -->
 <section class="paper">
@@ -214,6 +236,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
     <div class="datos">
       <div class="dato"><strong>5,7%</strong><span>creció la economía paraguaya en el primer semestre de 2026.</span><small>Fuente: Banco Central del Paraguay</small></div>
       <div class="dato"><strong>6 de 10</strong><span>personas que trabajan fuera del campo lo hacen en la informalidad.</span><small>Fuente: INE, 2.º trimestre de 2026 (61,6%)</small></div>
+      <div class="dato"><strong>Récord</strong><span>de aprobación de planos de construcción en Asunción en abril de 2026: más edificios, más departamentos para mantener.</span><small>Fuente: Municipalidad de Asunción</small></div>
       <div class="dato"><strong>1</strong><span>diferencia que el cliente nota enseguida: el que trabaja organizado, con precio claro y palabra cumplida.</span><small>Eso es lo que enseña esta guía</small></div>
     </div>
     <p class="narrow muted">Que haya demanda no garantiza clientes. Lo que te hace destacar en un mercado lleno de changas es trabajar como un profesional: presentarte bien, dar presupuesto claro, cumplir horarios y hacer post-venta.</p>
@@ -375,7 +398,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   <div class="wrap stack" style="gap:28px">
     <div class="stack narrow">
       <span class="eyebrow">Contenido</span>
-      <h2>11 capítulos y 3 bonos para usar desde el primer día</h2>
+      <h2>11 capítulos y 4 bonos para usar desde el primer día</h2>
       <p class="muted">Guía en PDF para leer en el celular, con pasos, tablas y checklists.</p>
     </div>
     <div class="indice">
@@ -395,6 +418,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <div class="bono"><span class="eyebrow">Bono 1</span><h3>Planilla de Control de Clientes y Ganancias</h3><p>Anotás cada trabajo y la planilla calcula tu ganancia, el resumen del mes y la fecha del post-venta.</p></div>
       <div class="bono"><span class="eyebrow">Bono 2</span><h3>Mensajes Listos para WhatsApp</h3><p>13 textos para copiar y pegar: presentación, presupuesto, cobro, post-venta, recordatorio y pedido de recomendación.</p></div>
       <div class="bono"><span class="eyebrow">Bono 3</span><h3>Limpieza de Aire Acondicionado Split</h3><p>El paso a paso para limpiar equipos split sin tocar el gas. Uno de los servicios más pedidos y que el cliente repite cada año.</p></div>
+      <div class="bono"><span class="eyebrow">Bono 4 · Nuevo</span><h3>Tu Primer Ayudante</h3><p>Cuándo sumar a alguien, cómo hacer la cuenta antes, la prueba de 3 trabajos y las reglas para que el cliente vea un equipo. Sale de la experiencia de coordinar tres equipos.</p></div>
     </div>
   </div>
 </section>
@@ -443,7 +467,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <span class="eyebrow">Empezá hoy</span>
       <h2>Tu negocio empieza con el primer cliente bien atendido</h2>
     </div>
-    <img src="img/mockup-py.jpg" alt="Guía Multiservicios en libro y celular con sus 3 bonos" style="display:block;width:100%;max-width:720px;margin:0 auto 24px;border-radius:12px" loading="lazy">
+    <img src="img/mockup-py.jpg" alt="Guía Multiservicios en libro y celular con sus bonos" style="display:block;width:100%;max-width:720px;margin:0 auto 24px;border-radius:12px" loading="lazy">
     <div class="oferta">
       <header><span>Tu kit para empezar</span><span>Acceso inmediato</span></header>
       <div class="cuerpo">
@@ -451,6 +475,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
         <div class="item"><span>Bono 1: Planilla de Clientes y Ganancias</span><span>Incluido</span></div>
         <div class="item"><span>Bono 2: 13 Mensajes Listos para WhatsApp</span><span>Incluido</span></div>
         <div class="item"><span>Bono 3: Limpieza de Aire Acondicionado Split</span><span>Incluido</span></div>
+        <div class="item"><span>Bono 4: Tu Primer Ayudante (nuevo)</span><span>Incluido</span></div>
         <div><span class="muted" style="font-size:15px">Pago único</span><p class="precio">Gs. 67.000</p><span class="muted" style="font-size:14px">US$ 10,90 · el valor exacto en guaraníes lo muestra la página de pago según el cambio del día</span></div>
         <a class="cta" href="https://pay.hotmart.com/C108206581N?checkoutMode=10" id="comprar" data-cta="oferta">Sí, quiero empezar mi negocio</a>
         <div class="medios" aria-label="Medios de pago aceptados"><span>Tarjeta de crédito</span><span>PayPal</span><span>Google Pay</span></div>
@@ -476,7 +501,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <details><summary>¿Necesito mucha plata para empezar?</summary><p>No. La guía tiene un kit mínimo de herramientas y te recomienda sumar el resto con lo que ganes en los primeros trabajos.</p></details>
       <details><summary>¿Sirve si vivo en el interior?</summary><p>Sí. Los ejemplos usan Gran Asunción, pero el método funciona en Encarnación, Ciudad del Este, Coronel Oviedo o cualquier ciudad. Los precios los ajustás a tu zona.</p></details>
       <details><summary>¿Me habilita para trabajos de gas o tableros eléctricos?</summary><p>No. La guía explica justamente qué trabajos dejar a profesionales habilitados.</p></details>
-      <details><summary>¿Cómo recibo la guía?</summary><p>Después del pago te llega un correo con el acceso a la guía y a los tres bonos.</p></details>
+      <details><summary>¿Cómo recibo la guía?</summary><p>Después del pago te llega un correo con el acceso a la guía y a los cuatro bonos.</p></details>
       <details><summary>¿Qué medios de pago aceptan?</summary><p>Desde Paraguay podés pagar con tarjeta de crédito, PayPal o Google Pay. Tu tarjeta tiene que estar habilitada para compras por internet; si tu banco cobra algún cargo por compra en el exterior, lo define tu banco, no nosotros. Por ahora no aceptamos giros ni billeteras locales.</p></details>
     </div>
   </div>
@@ -506,7 +531,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 </footer>
 
 <div class="sticky" id="barra">
-  <div><small>Guía + 3 bonos · pago único</small><b>Gs. 67.000</b></div>
+  <div><small>Guía + 4 bonos · pago único</small><b>Gs. 67.000</b></div>
   <a class="cta" href="#oferta" data-cta="barra">Quiero empezar</a>
 </div>
 
