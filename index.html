@@ -151,6 +151,20 @@ footer{padding-block:28px 112px;font-size:13px;color:var(--muted);background:var
 .sticky .cta{min-height:48px;font-size:16px;padding:0 18px}
 .sticky[hidden]{display:none!important}
 @media (min-width:880px){.sticky{display:none} footer{padding-bottom:32px}}
+
+/* Calculadora y vista previa */
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.calc .box{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.calc label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:16px}
+.calc input{font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;min-height:48px;width:100%;box-sizing:border-box}
+.calc input:focus{outline:3px solid var(--yellow);outline-offset:1px;border-color:var(--navy)}
+.calc .res{background:var(--navy);color:var(--white);border-radius:10px;padding:16px 18px}
+.calc .res b{display:block;font-family:var(--display);font-size:30px;color:var(--yellow);font-weight:900}
+.tag-ej{display:inline-block;background:var(--yellow);color:var(--ink);font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.1em;padding:4px 10px;border-radius:4px;text-transform:uppercase}
+.paginas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;align-items:start}
+.paginas figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.paginas img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);background:#fff}
+.paginas figcaption{font-size:15px;color:var(--on-navy-muted)}
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -187,7 +201,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
     <div class="cierre-grid" style="grid-template-columns:var(--op-cols,1fr)">
       <div class="stack">
         <span class="eyebrow">Por qué ahora</span>
-        <h2>En cada casa hay algo para arreglar. Y falta gente seria que lo haga.</h2>
+        <h2>En cada casa hay algo para arreglar. Y no todos saben ofrecerlo con orden.</h2>
         <p>Una canilla que gotea, un ventilador que hay que instalar antes del verano, una puerta que no cierra, un mueble que nadie armó. Son trabajos que aparecen todas las semanas. La queja de los clientes casi siempre es la misma: <strong>"no consigo a alguien de confianza que venga cuando dice"</strong>.</p>
       </div>
       <figure class="foto" style="margin:0;aspect-ratio:1/1">
@@ -294,6 +308,46 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   </div>
 </section>
 
+
+<!-- Calculadora de ejemplo -->
+<section class="paper" id="cuenta">
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack narrow">
+      <span class="eyebrow">Probá el método</span>
+      <h2>Facturar no es ganar. Hacé la cuenta.</h2>
+      <p class="muted">Esta es la fórmula del capítulo 5. Los números que aparecen son <strong>de ejemplo</strong>: cambialos por los tuyos. No es una promesa de ingresos; es la cuenta que te ayuda a no trabajar a pérdida.</p>
+    </div>
+    <div class="calc">
+      <div class="box">
+        <span class="tag-ej">Paso 1 · Tu hora</span>
+        <label>Lo que necesitás por mes para tus gastos personales (Gs.)<input id="c-vida" inputmode="numeric" value="4.000.000"></label>
+        <label>Gastos del trabajo por mes: celular, herramientas, pasaje (Gs.)<input id="c-gastos" inputmode="numeric" value="800.000"></label>
+        <label>Horas que vas a trabajar por mes<input id="c-horas" inputmode="numeric" value="120"></label>
+        <div class="res">Tu hora debería valer<b id="r-hora">Gs. 40.000</b></div>
+      </div>
+      <div class="box">
+        <span class="tag-ej">Paso 2 · Un trabajo</span>
+        <label>Horas que lleva el trabajo<input id="c-th" inputmode="decimal" value="2"></label>
+        <label>Traslado (Gs.)<input id="c-tras" inputmode="numeric" value="30.000"></label>
+        <label>Materiales que comprás vos (Gs.)<input id="c-mat" inputmode="numeric" value="10.000"></label>
+        <div class="res">Precio mínimo para no perder plata<b id="r-precio">Gs. 120.000</b></div>
+      </div>
+    </div>
+    <p class="muted" style="font-size:15px">Ejemplo ilustrativo. Cuánto trabajo consigas y cuánto cobres depende de tu zona, tu experiencia y tu esfuerzo.</p>
+  </div>
+</section>
+<script>
+(function(){
+  var f=function(id){var v=(document.getElementById(id).value||'').replace(/\./g,'').replace(',','.');var n=parseFloat(v);return isFinite(n)&&n>0?n:0};
+  function fmt(n){return 'Gs. '+(Math.round(n/1000)*1000).toLocaleString('es-PY')}
+  function calc(){var h=f('c-horas');var hora=h?(f('c-vida')+f('c-gastos'))/h:0;
+    document.getElementById('r-hora').textContent=fmt(hora);
+    document.getElementById('r-precio').textContent=fmt(hora*f('c-th')+f('c-tras')+f('c-mat'));}
+  ['c-vida','c-gastos','c-horas','c-th','c-tras','c-mat'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
+  calc();
+})();
+</script>
+
 <!-- 8. BENEFICIOS -->
 <section>
   <div class="wrap stack" style="gap:28px">
@@ -343,12 +397,31 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   </div>
 </section>
 
+
+<!-- Vista previa -->
+<section class="navy" style="padding-top:0">
+  <div class="wrap stack" style="gap:24px">
+    <div class="stack narrow">
+      <span class="eyebrow">Mirá por dentro</span>
+      <h2>Así son las páginas de la guía</h2>
+      <p class="muted">Pasos numerados, tablas y checklists. Para leer en el celular y usar en el trabajo.</p>
+    </div>
+    <div class="paginas">
+      <figure><img src="img/pagina-1.jpg" alt="Página del capítulo 5 con la fórmula para calcular el valor de tu hora" loading="lazy"><figcaption>Cap. 5: la fórmula de tu hora</figcaption></figure>
+      <figure><img src="img/pagina-2.jpg" alt="Página del capítulo 11 con el plan de 30 días semana por semana y checklist final" loading="lazy"><figcaption>Cap. 11: plan de 30 días y checklist</figcaption></figure>
+      <figure><img src="img/pagina-3.jpg" alt="Página del capítulo 1 con reglas de seguridad y trabajos que hay que dejar a un profesional habilitado" loading="lazy"><figcaption>Cap. 1: lo que hacés y lo que no</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- Autor -->
 <section>
   <div class="wrap narrow stack">
     <span class="eyebrow">Quién está detrás</span>
-    <h2>Escrita por alguien que construyó su negocio desde la herramienta</h2>
-    <p>El autor trabaja hace años en instalación y mantenimiento técnico de casas y edificios. Empezó solo, llegó a coordinar tres equipos de trabajo y armó su cartera de clientes concentrándose en pocos barrios, con presupuesto claro, post-venta y recordatorios. Esta guía reúne ese método, adaptado a los servicios del hogar en Paraguay.</p>
+    <h2>Escrita por alguien que vive del oficio</h2>
+    <p>Soy técnico de instalación y mantenimiento en Río de Janeiro, Brasil, con mi empresa Raposo Soluções. Empecé solo, con la herramienta en la mano. Con el tiempo llegué a coordinar tres equipos y hoy atiendo clientes con mantenimiento fijo, algunos desde hace más de cinco años.</p>
+    <p>Lo que más me ayudó no fue una técnica nueva, sino el orden: concentrarme en pocos barrios, pasar presupuesto claro, hacer post-venta al mes y avisar cuando toca el próximo mantenimiento. Esta guía reúne ese método, adaptado al Paraguay: precios en guaraníes, servicios que se piden en las casas de acá y canales que se usan acá.</p>
+    <p class="muted">No vivo en Paraguay, y por eso no te prometo conocer cada barrio. Te ofrezco un método probado en el trabajo diario para que lo apliques en el tuyo. Podés ver mi trabajo en Instagram: <a href="https://www.instagram.com/raposo.arcondicionado/" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700">@raposo.arcondicionado</a>.</p>
   </div>
 </section>
 
