@@ -166,6 +166,7 @@ footer{padding-block:28px 112px;font-size:13px;color:var(--muted);background:var
 .paginas img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);background:#fff}
 .paginas figcaption{font-size:15px;color:var(--on-navy-muted)}
 .medios{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.medios span{border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:14px;font-weight:700;color:var(--navy);background:var(--white)}
+.galeria-autor{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;margin-bottom:8px}.galeria-autor figure{margin:0;min-width:0}.galeria-autor .g1{grid-column:span 2}.galeria-autor img{width:100%;height:auto;object-fit:cover;display:block;border-radius:10px;aspect-ratio:4/3}.galeria-autor .g1 img{aspect-ratio:4/5;object-position:center 60%}.galeria-autor figcaption{font-size:14px;line-height:1.3;color:var(--muted);margin-top:6px}
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -420,7 +421,11 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   <div class="wrap narrow stack">
     <span class="eyebrow">Quién está detrás</span>
     <h2>Empecé como vos: con lo poco que sabía arreglar</h2>
-    <figure style="margin:0"><img src="img/autor-trabajando.jpg" alt="Dos técnicos con uniforme azul trabajando en la instalación de una cocina en un departamento nuevo" width="1000" height="1333" loading="lazy" style="width:100%;max-width:520px;height:auto;display:block;border-radius:12px"><figcaption class="muted" style="font-size:15px;margin-top:8px">Mi equipo en un trabajo en un departamento nuevo, en Río de Janeiro.</figcaption></figure>
+    <div class="galeria-autor">
+      <figure class="g1"><img src="img/autor-trabajando.jpg" alt="Dos técnicos con uniforme azul trabajando en la instalación de una cocina en un departamento nuevo" width="1000" height="1333" loading="lazy"><figcaption>Con mi equipo en un departamento nuevo</figcaption></figure>
+      <figure><img src="img/autor-reflector.jpg" alt="El autor sobre una escalera instalando un reflector en la fachada de un edificio" width="700" height="570" loading="lazy"><figcaption>Instalando un reflector</figcaption></figure>
+      <figure><img src="img/autor-medidores.jpg" alt="El autor instalando cajas de medidores de luz en una pared exterior" width="552" height="310" loading="lazy"><figcaption>Instalación de medidores de luz</figcaption></figure>
+    </div>
     <p>A los 22 años trabajaba en un almacén de barrio. Ahí siempre había algo para arreglar, y así aprendí a usar una taladradora y a pegar un caño. Cuando el dueño falleció, me quedé sin trabajo.</p>
     <p>Con eso que sabía empecé a ofrecer arreglos a los vecinos de mi casa. Un trabajo trajo otro. Después hice cursos de electricista, plomero, cerrajero y técnico de aire acondicionado, y nunca más paré. Con los años llegué a coordinar tres equipos y hoy tengo clientes con mantenimiento fijo, algunos desde hace más de cinco años.</p>
     <p>Hoy mi foco es el aire acondicionado, con mi empresa Raposo Soluções en Río de Janeiro, Brasil. Pero los pequeños trabajos nunca se fueron: cuando llego a instalar un equipo, el cliente casi siempre me pide algo más. Colgar un estante, armar un mueble, revisar un enchufe. Hace poco fui a desinstalar un aire y terminé desarmando también un placard.</p>
