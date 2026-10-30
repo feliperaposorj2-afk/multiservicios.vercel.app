@@ -44,9 +44,10 @@ p{margin:0}
 .trust span::before{content:"";width:8px;height:8px;background:var(--yellow);border-radius:2px}
 
 /* Foto (con espacio reservado si todavía no hay imagen) */
-.foto{position:relative;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#1C4470,#0F2742);aspect-ratio:4/5;max-width:100%}
+.foto{position:relative;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#1C4470,#0F2742);aspect-ratio:4/3;max-width:100%}
+@media (min-width:880px){.hero .foto{aspect-ratio:4/5;max-height:560px}}
 .foto.wide{aspect-ratio:16/9}
-.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.foto img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block}
 .foto figcaption{position:absolute;inset:auto 0 0 0;padding:14px 16px;font-size:14px;color:var(--on-navy-muted);background:linear-gradient(0deg,rgba(15,39,66,.95),rgba(15,39,66,0))}
 .foto .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:var(--on-navy-muted);font-size:15px}
 .foto .ph b{display:block;font-family:var(--display);color:var(--yellow);letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-bottom:6px}
@@ -195,8 +196,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <div class="trust muted"><span>Guía en PDF + 4 bonos</span><span>Acceso inmediato</span><span>7 días de garantía</span></div>
     </div>
     <figure class="foto" style="margin:0">
-      <img src="img/hero.jpg" alt="Técnico de mantenimiento con uniforme y caja de herramientas en la puerta de una casa" loading="eager" data-ph>
-      <div class="ph" hidden><div><b>Foto principal</b>Hombre de 30 a 45 años con polo azul marino y caja de herramientas, en la entrada de una casa de Gran Asunción, mirando a cámara con confianza.</div></div>
+      <img src="img/hero.jpg" alt="Técnico de mantenimiento con uniforme y caja de herramientas en la puerta de una casa" loading="eager">
     </figure>
   </div>
 </header>
@@ -229,8 +229,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
         <p>Una canilla que gotea, un ventilador que hay que instalar antes del verano, una puerta que no cierra, un mueble que nadie armó. Son trabajos que aparecen todas las semanas. La queja de los clientes casi siempre es la misma: <strong>"no consigo a alguien de confianza que venga cuando dice"</strong>.</p>
       </div>
       <figure class="foto" style="margin:0;aspect-ratio:1/1">
-        <img src="img/trabajo.jpg" alt="Técnico con polo azul marino instalando un ventilador de techo en una sala" loading="lazy" data-ph>
-        <div class="ph" hidden><div><b>Foto de trabajo</b>Manos instalando un ventilador de techo.</div></div>
+        <img src="img/trabajo.jpg" alt="Técnico con polo azul marino instalando un ventilador de techo en una sala" loading="lazy">
       </figure>
     </div>
     <div class="datos">
@@ -512,8 +511,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 <section class="navy">
   <div class="wrap cierre-grid">
     <figure class="foto wide" style="margin:0">
-      <img src="img/cierre.jpg" alt="Técnico con uniforme cargando herramientas en una camioneta con su nombre" loading="lazy" data-ph>
-      <div class="ph" hidden><div><b>Foto de cierre</b>Técnico con uniforme cargando herramientas en una moto o camioneta con su nombre o logo.</div></div>
+      <img src="img/cierre.jpg" alt="Técnico con uniforme cargando herramientas en una camioneta con su nombre" loading="lazy">
     </figure>
     <div class="stack">
       <span class="eyebrow">Mirá más lejos</span>
