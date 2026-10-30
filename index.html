@@ -162,7 +162,7 @@ footer{padding-block:28px 112px;font-size:13px;color:var(--muted);background:var
 .calc .res{background:var(--navy);color:var(--white);border-radius:10px;padding:16px 18px}
 .calc .res b{display:block;font-family:var(--display);font-size:30px;color:var(--yellow);font-weight:900}
 .tag-ej{display:inline-block;background:var(--yellow);color:var(--ink);font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.1em;padding:4px 10px;border-radius:4px;text-transform:uppercase}
-.paginas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;align-items:start}
+.paginas{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;max-width:420px;margin:0 auto;width:100%}
 .paginas figure{margin:0;display:flex;flex-direction:column;gap:8px}
 .paginas img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);background:#fff}
 .paginas figcaption{font-size:15px;color:var(--on-navy-muted)}
@@ -190,8 +190,8 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   <div class="wrap hero-grid">
     <div class="stack">
       <span class="eyebrow">Guía práctica · Servicios de mantenimiento del hogar</span>
-      <h1>Convertí tus habilidades en un <em>negocio de servicios para el hogar</em></h1>
-      <p class="lead">El método para pasar de changas sueltas a un trabajo propio y organizado: qué servicios ofrecer, cuánto cobrar en guaraníes, cómo conseguir clientes en tu barrio y cómo hacer que vuelvan.</p>
+      <h1>Transformá tu habilidad en <em>ingresos</em></h1>
+      <p class="lead">De la changa al servicio organizado: qué servicios ofrecer, cuánto cobrar en guaraníes, cómo conseguir clientes en tu barrio y cómo hacer que vuelvan.</p>
       <div><a class="cta" href="#oferta" data-cta="hero">Quiero empezar mi negocio</a></div>
       <div class="trust muted"><span>Guía en PDF + 4 bonos</span><span>Acceso inmediato</span><span>7 días de garantía</span></div>
     </div>
@@ -236,7 +236,6 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <div class="dato"><strong>5,7%</strong><span>creció la economía paraguaya en el primer semestre de 2026.</span><small>Fuente: Banco Central del Paraguay</small></div>
       <div class="dato"><strong>6 de 10</strong><span>personas que trabajan fuera del campo lo hacen en la informalidad.</span><small>Fuente: INE, 2.º trimestre de 2026 (61,6%)</small></div>
       <div class="dato"><strong>Récord</strong><span>de aprobación de planos de construcción en Asunción en abril de 2026: más edificios, más departamentos para mantener.</span><small>Fuente: Municipalidad de Asunción</small></div>
-      <div class="dato"><strong>1</strong><span>diferencia que el cliente nota enseguida: el que trabaja organizado, con precio claro y palabra cumplida.</span><small>Eso es lo que enseña esta guía</small></div>
     </div>
     <p class="narrow muted">Que haya demanda no garantiza clientes. Lo que te hace destacar en un mercado lleno de changas es trabajar como un profesional: presentarte bien, dar presupuesto claro, cumplir horarios y hacer post-venta.</p>
   </div>
@@ -261,78 +260,6 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   </div>
 </section>
 
-<!-- 5. TRANSFORMACIÓN -->
-<section>
-  <div class="wrap stack" style="gap:28px">
-    <div class="stack narrow">
-      <span class="eyebrow">La transformación</span>
-      <h2>De trabajador informal a prestador de servicios organizado</h2>
-      <p>No hace falta abrir una empresa grande para tener algo propio. Hace falta trabajar con método desde el primer cliente.</p>
-    </div>
-    <div class="cambio">
-      <table>
-        <thead><tr><th>Changas sueltas</th><th>Negocio organizado</th></tr></thead>
-        <tbody>
-          <tr><td>Cobrás "lo que te parece" y muchas veces perdés plata.</td><td>Calculás tu hora y tenés una tabla de precios.</td></tr>
-          <tr><td>Esperás que alguien se acuerde de vos.</td><td>Conseguís clientes con WhatsApp, grupos del barrio y ferreterías aliadas.</td></tr>
-          <tr><td>Llegás con cualquier ropa y sin presupuesto.</td><td>Llegás con uniforme, credencial y presupuesto por escrito.</td></tr>
-          <tr><td>Hacés el trabajo y el cliente se olvida.</td><td>Hacés post-venta y el cliente te vuelve a llamar.</td></tr>
-          <tr><td>No sabés cuánto ganaste en el mes.</td><td>Anotás cada trabajo y ves tu ganancia real.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- Camino -->
-<section class="navy">
-  <div class="wrap stack" style="gap:28px">
-    <div class="stack narrow">
-      <span class="eyebrow">Tu camino</span>
-      <h2>Empezás solo. Crecés paso a paso.</h2>
-    </div>
-    <div class="camino">
-      <div class="etapa"><span class="n">Etapa 1</span><h3>Arrancás</h3><p>Elegís tus primeros servicios, armás tu kit de herramientas y practicás antes de cobrar.</p></div>
-      <div class="etapa"><span class="n">Etapa 2</span><h3>Te organizás</h3><p>Ponés precio, armás tu agenda y anotás cada trabajo para saber cuánto ganás.</p></div>
-      <div class="etapa"><span class="n">Etapa 3</span><h3>Construís reputación</h3><p>Nombre, uniforme, reseñas y recomendaciones: tu barrio empieza a conocerte.</p></div>
-      <div class="etapa"><span class="n">Etapa 4</span><h3>Crecés</h3><p>Clientes fijos, edificios y planes de mantenimiento. Un trabajo que puede crecer con el tiempo.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 6. SERVICIOS -->
-<section>
-  <div class="wrap stack" style="gap:28px">
-    <div class="stack narrow">
-      <span class="eyebrow">Qué vas a poder ofrecer</span>
-      <h2>Servicios que empiezan simples y suben de nivel con tu experiencia</h2>
-    </div>
-    <div class="niveles">
-      <div class="nivel"><span class="tag">Nivel 1 · Desde el primer día</span><ul><li>Colgar estantes, cuadros, cortinas y espejos</li><li>Armar muebles</li><li>Ajustar puertas, bisagras y manijas</li><li>Sellar con silicona en baño y cocina</li></ul></div>
-      <div class="nivel"><span class="tag">Nivel 2 · Con práctica</span><ul><li>Cambiar canillas y flexibles</li><li>Arreglar la cisterna del inodoro</li><li>Destapar piletas y desagües</li><li>Cambiar tomacorrientes y lámparas (con la llave cortada)</li><li>Instalar ventiladores de techo</li></ul></div>
-      <div class="nivel"><span class="tag">Nivel 3 · Con experiencia</span><ul><li>Pintura de ambientes</li><li>Arreglos de revoque y masilla</li><li>Cambio de cerraduras</li><li>Mosquiteros y rejas</li></ul></div>
-    </div>
-    <p class="aviso"><strong>Seguridad primero:</strong> la guía te dice qué trabajos NO hacer y cuándo recomendar a un profesional habilitado: gas, tableros eléctricos, estructuras y trabajos en altura.</p>
-  </div>
-</section>
-
-<!-- 7. MÉTODO -->
-<section class="paper">
-  <div class="wrap stack" style="gap:28px">
-    <div class="stack narrow">
-      <span class="eyebrow">El método</span>
-      <h2>Cuatro movimientos para que tu trabajo se convierta en negocio</h2>
-    </div>
-    <div class="metodo">
-      <div class="pilar"><span class="verbo">Empezar</span><p>Qué servicios ofrecer primero, qué herramientas comprar sin gastar de más y cómo calcular tu precio para no trabajar a pérdida.</p></div>
-      <div class="pilar"><span class="verbo">Mostrarte</span><p>Nombre, uniforme, WhatsApp Business, estados diarios, grupos del barrio, Marketplace y Clasipar.</p></div>
-      <div class="pilar"><span class="verbo">Conquistar</span><p>Presupuesto claro, respuestas listas cuando te dicen "está caro" y alianzas con ferreterías, inmobiliarias y edificios.</p></div>
-      <div class="pilar"><span class="verbo">Organizar</span><p>Agenda, registro de trabajos, post-venta a los 30 días, recordatorio a los 6 meses y planes de mantenimiento fijo.</p></div>
-    </div>
-  </div>
-</section>
-
-
 <!-- Calculadora de ejemplo -->
 <section class="paper" id="cuenta">
   <div class="wrap stack" style="gap:28px">
@@ -343,18 +270,12 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
     </div>
     <div class="calc">
       <div class="box">
-        <span class="tag-ej">Paso 1 · Tu hora</span>
-        <label>Lo que necesitás por mes para tus gastos personales (Gs.)<input id="c-vida" inputmode="numeric" value="4.000.000"></label>
-        <label>Gastos del trabajo por mes: celular, herramientas, pasaje (Gs.)<input id="c-gastos" inputmode="numeric" value="800.000"></label>
+        <span class="tag-ej">Tu precio mínimo</span>
+        <label>Lo que necesitás por mes, sumando gastos personales y del trabajo (Gs.)<input id="c-vida" inputmode="numeric" value="4.800.000"></label>
         <label>Horas que vas a trabajar por mes<input id="c-horas" inputmode="numeric" value="120"></label>
-        <div class="res">Tu hora debería valer<b id="r-hora">Gs. 40.000</b></div>
-      </div>
-      <div class="box">
-        <span class="tag-ej">Paso 2 · Un trabajo</span>
         <label>Horas que lleva el trabajo<input id="c-th" inputmode="decimal" value="2"></label>
-        <label>Traslado (Gs.)<input id="c-tras" inputmode="numeric" value="30.000"></label>
-        <label>Materiales que comprás vos (Gs.)<input id="c-mat" inputmode="numeric" value="10.000"></label>
-        <div class="res">Precio mínimo para no perder plata<b id="r-precio">Gs. 120.000</b></div>
+        <div class="res">Tu hora debería valer<b id="r-hora">Gs. 40.000</b></div>
+        <div class="res">Precio mínimo del trabajo, sin traslado ni materiales<b id="r-precio">Gs. 80.000</b></div>
       </div>
     </div>
     <p class="muted" style="font-size:15px">Ejemplo ilustrativo. Cuánto trabajo consigas y cuánto cobres depende de tu zona, tu experiencia y tu esfuerzo.</p>
@@ -364,10 +285,10 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 (function(){
   var f=function(id){var v=(document.getElementById(id).value||'').replace(/\./g,'').replace(',','.');var n=parseFloat(v);return isFinite(n)&&n>0?n:0};
   function fmt(n){return 'Gs. '+(Math.round(n/1000)*1000).toLocaleString('es-PY')}
-  function calc(){var h=f('c-horas');var hora=h?(f('c-vida')+f('c-gastos'))/h:0;
+  function calc(){var h=f('c-horas');var hora=h?f('c-vida')/h:0;
     document.getElementById('r-hora').textContent=fmt(hora);
-    document.getElementById('r-precio').textContent=fmt(hora*f('c-th')+f('c-tras')+f('c-mat'));}
-  ['c-vida','c-gastos','c-horas','c-th','c-tras','c-mat'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
+    document.getElementById('r-precio').textContent=fmt(hora*f('c-th'));}
+  ['c-vida','c-horas','c-th'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
   calc();
 })();
 </script>
@@ -380,15 +301,14 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <h2>Más que arreglar cosas: saber vender tu trabajo</h2>
     </div>
     <ul class="check">
-      <li><span>Un plan de 30 días, semana por semana, para pasar de cero a tus primeros clientes.</span></li>
-      <li><span>Una fórmula simple para calcular tu hora y tu precio en guaraníes.</span></li>
-      <li><span>Paso a paso de los 10 trabajos más pedidos en una casa.</span></li>
+      <li><span>Un plan de 30 días, semana por semana, para llegar a tus primeros clientes.</span></li>
+      <li><span>Qué servicios ofrecer primero: de colgar un estante a instalar un ventilador.</span></li>
+      <li><span>Una fórmula simple para calcular tu precio en guaraníes.</span></li>
       <li><span>Qué responder cuando el cliente regatea, sin bajar tu precio.</span></li>
-      <li><span>Cómo presentarte para que el cliente confíe en vos desde la puerta.</span></li>
-      <li><span>Cómo convertirte en el nombre que tu barrio recuerda.</span></li>
+      <li><span>Cómo presentarte para que confíen en vos desde la puerta.</span></li>
       <li><span>Cómo hacer que el cliente vuelva y te recomiende.</span></li>
-      <li><span>Una planilla que calcula sola tu ganancia del mes.</span></li>
     </ul>
+    <p class="aviso"><strong>Seguridad primero:</strong> la guía te dice qué trabajos NO hacer y cuándo recomendar a un profesional habilitado: gas, tableros eléctricos, estructuras y trabajos en altura.</p>
   </div>
 </section>
 
@@ -433,8 +353,6 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
     </div>
     <div class="paginas">
       <figure><img src="img/pagina-1.jpg" alt="Página del capítulo 5 con la fórmula para calcular el valor de tu hora" loading="lazy"><figcaption>Cap. 5: la fórmula de tu hora</figcaption></figure>
-      <figure><img src="img/pagina-2.jpg" alt="Página del capítulo 11 con el plan de 30 días semana por semana y checklist final" loading="lazy"><figcaption>Cap. 11: plan de 30 días y checklist</figcaption></figure>
-      <figure><img src="img/pagina-3.jpg" alt="Página del capítulo 1 con reglas de seguridad y trabajos que hay que dejar a un profesional habilitado" loading="lazy"><figcaption>Cap. 1: lo que hacés y lo que no</figcaption></figure>
     </div>
   </div>
 </section>
@@ -447,9 +365,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
     <div class="galeria-autor">
       <figure class="g1"><img src="img/autor-retrato.jpg" alt="Felipe Raposo, autor de la guía, con gorra de su empresa" width="700" height="1130" loading="lazy" style="aspect-ratio:1/1;object-position:center 20%"><figcaption>Felipe Raposo, autor de la guía</figcaption></figure>
       <figure><img src="img/autor-aire.jpg" alt="El autor limpiando un aire acondicionado split" width="900" height="1200" loading="lazy" style="aspect-ratio:3/4"><figcaption>Limpieza de aire acondicionado</figcaption></figure>
-      <figure><img src="img/autor-techo.jpg" alt="El autor trabajando en el techo de un departamento" width="900" height="1200" loading="lazy" style="aspect-ratio:3/4"><figcaption>Trabajo en techo</figcaption></figure>
       <figure><img src="img/autor-trabajando.jpg" alt="Dos técnicos con uniforme azul trabajando en la instalación de una cocina en un departamento nuevo" width="1000" height="1333" loading="lazy"><figcaption>Con mi equipo en un departamento nuevo</figcaption></figure>
-      <figure><img src="img/autor-reflector.jpg" alt="El autor sobre una escalera instalando un reflector en la fachada de un edificio" width="700" height="570" loading="lazy"><figcaption>Instalando un reflector</figcaption></figure>
     </div>
     <p>A los 22 años trabajaba en un almacén de barrio. Ahí siempre había algo para arreglar, y así aprendí a usar una taladradora y a pegar un caño. Cuando el dueño falleció, me quedé sin trabajo.</p>
     <p>Con eso que sabía empecé a ofrecer arreglos a los vecinos de mi casa. Un trabajo trajo otro. Después hice cursos de electricista, plomero, cerrajero y técnico de aire acondicionado, y nunca más paré. Con los años llegué a coordinar tres equipos y hoy tengo clientes con mantenimiento fijo, algunos desde hace más de cinco años.</p>
